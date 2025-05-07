@@ -206,6 +206,9 @@ package org.Lin_MidWork;
 ## 三、流程描述
 
 ### **1. 调用链路**
+![Mermaid代码生成的图片](Mermaid.png)
+
+---
 ```
 graph TD
     A[开始] --> B[Main.main 启动]
