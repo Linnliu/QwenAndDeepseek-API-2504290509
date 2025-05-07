@@ -207,60 +207,32 @@ package org.Lin_MidWork;
 
 ### **1. 调用链路**
 ```
-+-------------------+
-|   用户输入问题    |
-| (QwenGUI.java)    |
-+-------------------+
-           |
-           v
-+-------------------+
-|  点击“发送”按钮   |
-| (SendButtonListener)|
-+-------------------+
-           |
-           v
-+-----------------------+
-| 提交任务到线程池      |
-| (ExecutorService)     |
-+-----------------------+
-           |
-     +-----+------+
-     |            |
-     v            v
-+--------+   +----------+
-| QwenAPI|   | DeepseekAPI|
-|调用API |   |调用API   |
-|(callQwenAPI)|(callDeepseekAPI)|
-+--------+   +----------+
-     |            |
-     v            v
-+---------------------------------+
-| 构建请求消息体                  |
-| (buildMessages)                 |
-+---------------------------------+
-           |
-           v
-+---------------------------------+
-| 发送 HTTP 请求并获取响应        |
-| (callLLMAPI)                    |
-+---------------------------------+
-           |
-           v
-+---------------------------------+
-| 解析响应并更新UI                |
-| (extractAndDisplayContent)      |
-+---------------------------------+
-           |
-           v
-+---------------------------------+
-| 保存响应数据到 JSON 文件        |
-| (saveToJson)                    |
-+---------------------------------+
-           |
-           v
-+-------------------+
-| 显示输出在 JTextArea |
-+-------------------+
+graph TD
+    A[开始] --> B[Main.main 启动]
+    B --> C[创建 QwenGUI 实例并显示界面]
+    C --> D[用户输入问题 -> 点击发送按钮]
+    D --> E[SendButtonListener.actionPerformed 触发]
+    E --> F[禁用发送按钮]
+    F --> G[弹出 WaitingDialog 对话框]
+    G --> H[线程池提交两个任务:]
+    H -->|调用 Qwen API| I[APICaller.callQwenAPI()]
+    I --> J[解析返回数据 DataProcessor.extractAndDisplayContent()]
+    J --> K[显示在 outputTextArea1]
+    K --> L[保存结果到 JSON 文件 DataProcessor.saveToJson()]
+    L --> M[如果未取消, 更新 UI: 启用按钮、关闭等待框]
+
+    H -->|调用 Deepseek API| N[APICaller.callDeepseekAPI()]
+    N --> O[解析返回数据 DataProcessor.extractAndDisplayContent()]
+    O --> P[显示在 outputTextArea2]
+    P --> Q[保存结果到 JSON 文件 DataProcessor.saveToJson()]
+
+    G --> R[用户点击取消 -> canceled = true]
+    R --> S[中断后续处理]
+
+    M --> T[结束]
+    Q --> T
+    R --> T
+
 ```
 
 
