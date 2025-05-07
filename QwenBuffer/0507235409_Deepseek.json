@@ -1,0 +1,5 @@
+{
+    "output": "{\"id\":\"ca8d0bd5-68b8-4946-81af-53cc4dd6d33e\",\"object\":\"chat.completion\",\"created\":1746633244,\"model\":\"deepseek-chat\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"你好！有什么可以帮你的吗？\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":16,\"completion_tokens\":8,\"total_tokens\":24,\"prompt_tokens_details\":{\"cached_tokens\":0},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":16},\"system_fingerprint\":\"fp_8802369eaa_prod0425fp8\"}",
+    "inputText": "你好",
+    "model": "Deepseek"
+}
