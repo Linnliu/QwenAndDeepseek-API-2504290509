@@ -55,14 +55,14 @@ package org.Lin_MidWork;
 - **参数**：
     - `text`: 用户输入的问题。
 - **返回值**：API 响应字符串。
-- **调用方法**：内部调用 [callLLMAPI()](file://C:\Users\Linse\Desktop\Ajava\QwenAndDeepseek-Client\src\main\java\org\Lin_MidWork\APICaller.java#L28-L60) 方法。
+- **调用方法**：内部调用 [callLLMAPI()] 方法。
 
 ##### `public static String callDeepseekAPI(String text)`
 - **功能**：调用 DeepSeek 模型处理用户输入文本。
 - **参数**：
     - `text`: 用户输入的问题。
 - **返回值**：API 响应字符串。
-- **调用方法**：内部调用 [callLLMAPI()](file://C:\Users\Linse\Desktop\Ajava\QwenAndDeepseek-Client\src\main\java\org\Lin_MidWork\APICaller.java#L28-L60) 方法。
+- **调用方法**：内部调用 [callLLMAPI()] 方法。
 
 ##### `private static String callLLMAPI(String apiUrl, String model, String apiKey, String userText)`
 - **功能**：向指定 URL 发送 POST 请求，调用 LLM 接口。
@@ -145,8 +145,8 @@ package org.Lin_MidWork;
     1. 获取用户输入文本；
     2. 启动两个线程分别调用 Qwen 和 DeepSeek API；
     3. 使用 `SwingUtilities.invokeLater()` 更新 UI；
-    4. 调用 [DataProcessor.extractAndDisplayContent()](file://C:\Users\Linse\Desktop\Ajava\QwenAndDeepseek-Client\src\main\java\org\Lin_MidWork\DataProcessor.java#L13-L28) 展示结果；
-    5. 调用 [DataProcessor.saveToJson()](file://C:\Users\Linse\Desktop\Ajava\QwenAndDeepseek-Client\src\main\java\org\Lin_MidWork\DataProcessor.java#L30-L50) 保存记录。
+    4. 调用 [DataProcessor.extractAndDisplayContent()] 展示结果；
+    5. 调用 [DataProcessor.saveToJson()] 保存记录。
 
 ---
 
@@ -198,7 +198,7 @@ package org.Lin_MidWork;
 
 ##### `public static void main(String[] args)`
 - **功能**：程序入口点，启动图形界面。
-- **实现方式**：通过Main类的[main()](file://C:\Users\Linse\Desktop\Ajava\QwenAndDeepseek-Client\src\main\java\org\Lin_MidWork\Main.java#L6-L11)方法创建并显示窗口。
+- **实现方式**：通过Main类的[main()]方法创建并显示窗口。
 - **说明**：确保 GUI 在事件调度线程中创建和显示。
 
 ---
